@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private UIMainMenu mainMenu;
-    [SerializeField] private UIInventory inventory;
-    [SerializeField] private UIStatus status;
+    public UIMainMenu MainMenu { get; private set; }
+    public UIInventory Inventory { get; private set; }
+    public UIStatus Status { get; private set; }
 
     public static UIManager Instance;
     private void Awake()

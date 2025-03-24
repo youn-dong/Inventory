@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIStatus : MonoBehaviour
 {
@@ -9,11 +10,11 @@ public class UIStatus : MonoBehaviour
     public TextMeshProUGUI hpValue;
     public TextMeshProUGUI criticalValue;
 
-    [Header("Button")]
-    public GameObject BackBtn;
+    [Header("버튼")]
+    public Button mainUIBtn;
     void Start()
     {
-        
+        mainUIBtn.onClick.AddListener(UIManager.Instance.MainMenu.OpenMainMenu);
     }
 
     // Update is called once per frame
