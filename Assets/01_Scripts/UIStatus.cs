@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
@@ -27,6 +28,9 @@ public class UIStatus : MonoBehaviour, IGetData
 
     public void SetCharacterData(Character character)
     {
-        
+        atkValue.text = $" 공격력 \n {character.Atk}";
+        defValue.text = $" 방어력 \n {character.Def}";
+        hpValue.text = $" 체력\n {character.MaxHp}";
+        criticalValue.text = $" 치명타 \n {character.Critical}";
     }
 }

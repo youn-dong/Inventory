@@ -3,7 +3,7 @@ public class Character
     public string UserName { get; private set; }
     public int Atk { get; private set;}
     public int Def { get; private set;}
-    public int Hp { get; private set; }
+    public int MaxHp { get; private set; }
     public int Critical { get; private set; }
     public int Gold { get; private set; }
     public string description;
@@ -17,7 +17,7 @@ public class Character
         CurExp = 0;
         Atk = 0;
         Def = 0;
-        Hp = 100;
+        MaxHp = 100;
         Critical = 5;
         Gold = 10000;
         description = "";
@@ -31,6 +31,5 @@ public class Character
             Level++;
             MaxExp += 5;
         }
-
     }
 }

@@ -14,10 +14,12 @@ public class UIMainMenu : MonoBehaviour, IGetData
     public TextMeshProUGUI nameTxt;
     public TextMeshProUGUI levelTxt;
     public TextMeshProUGUI goldAmount;
-
-    [Header("버튼")]
+    public TextMeshProUGUI expTxt;
+    
+    [Header("Element")]
     public Button inventoryBtn;
     public Button statusBtn;
+    public Slider expSlider;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +55,9 @@ public class UIMainMenu : MonoBehaviour, IGetData
         nameTxt.text = $"ID : {character.UserName} ";
         levelTxt.text = $"Level : {character.Level} ";
         goldAmount.text = $"{character.Gold} ";
+        expTxt.text = $"{character.CurExp} / {character.MaxExp}";
+
+        expSlider.value = (float)character.CurExp / character.MaxExp;
     }
 }
 
