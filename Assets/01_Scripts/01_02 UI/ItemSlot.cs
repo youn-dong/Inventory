@@ -6,13 +6,19 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
 {
+    [Header("Slot")]
     [SerializeField] private Image icon;
     [SerializeField] private TextMeshProUGUI quantityText; //인벤토리에 있는 아이템의 개수
     [SerializeField] private TextMeshProUGUI equipTxt;
+    [SerializeField] private Button itemBtn;
 
     private int curQuantity;
     private Item currentItem;
 
+    private void Start()
+    {
+        itemBtn.onClick.AddListener(OnItemClicked);
+    }
     public void SetItem(Item newItem, int quantity = 1)
     {
         currentItem = newItem; //새로운 아이템을 할당
