@@ -34,11 +34,13 @@ public class UIPopup : MonoBehaviour
             ClosePopUp();
             return;
         }
-        selectedItemName.text = currentItem.ItemName;
+        selectedItemName.text = currentItem.ItemName; //선택한 아이템들의 데이터 들고오기
         selectedItemStatName.text = currentItem.StatType.ToString();
         selectedItemStatValue.text = currentItem.StatValue.ToString();
         iconImage.sprite = currentItem.Image;
+
         bool isEquipped = GameManager.Instance.Player.IsItemEquipped(currentItem); 
+        Debug.Log("isEquipped" + isEquipped);
         equipBtn.gameObject.SetActive(!isEquipped); //장착버튼은 아이템을 장착하지 않았을 때 표시하기위해서 
         unEquipBtn.gameObject.SetActive(isEquipped); //장착해제버튼은 아이템을 장착했을 때 표시하기위해서
         returnBtn.gameObject.SetActive(true);
@@ -52,6 +54,7 @@ public class UIPopup : MonoBehaviour
         if(currentItem != null)
         {
             GameManager.Instance.Player.EquipItem(currentItem);
+            UIManager.Instance.Inventory.UpdateUI();
         }
         ClosePopUp();
     }
@@ -61,6 +64,7 @@ public class UIPopup : MonoBehaviour
         if(currentItem != null)
         {
             GameManager.Instance.Player.UnEquipItem(currentItem);
+            UIManager.Instance.Inventory.UpdateUI();
         }
         ClosePopUp();
     }

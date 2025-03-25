@@ -52,14 +52,15 @@ public class Character
     {
         if (item != null && Inventory.Contains(item))
         {
-            if(equippedItems.ContainsKey(item.ItemType))
+            if (equippedItems.ContainsKey(item.ItemType))
             {
                 equippedItems[item.ItemType] = item;
             }
-        }
-        else
-        {
-            equippedItems.Add(item.ItemType, item);
+
+            else
+            {
+                equippedItems.Add(item.ItemType, item);
+            }
         }
     }
     public void UnEquipItem(Item item)
@@ -71,6 +72,10 @@ public class Character
     }
     public bool IsItemEquipped(Item item)
     {
+        if(item == null) //현재 장착된 아이템이 있는지 없는지를 체크
+        {
+            return false;
+        }
         return item != null && equippedItems.ContainsKey(item.ItemType) && equippedItems[item.ItemType] == item;
     }
 }

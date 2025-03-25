@@ -13,6 +13,7 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] private Button itemBtn;
 
     private int curQuantity;
+
     private Item currentItem;
 
     private void Start()
@@ -34,16 +35,30 @@ public class ItemSlot : MonoBehaviour
     }
     public void UpdateSlot()
     {
+        UIInventory uiInventroy = UIManager.Instance.Inventory;
         if (currentItem != null)  //갖고있는 아이템이라면
         {
             icon.sprite = currentItem.Image;
             icon.enabled = true;  // 갖고있는 아이템 이미지 활성화
             quantityText.text = curQuantity > 1 ? curQuantity.ToString() : ""; //삼항연산자를 활용하여 갖고있는 아이템이 1보다 크다면 개수를 표시
+
+            bool isEquipped = GameManager.Instance.Player.IsItemEquipped(currentItem);
+            if (isEquipped)
+            {
+                Debug.Log("현재상태" + isEquipped);
+                equipTxt.gameObject.SetActive(isEquipped);
+            }
+            else
+            {
+                Debug.Log("현재상태" + isEquipped);
+                equipTxt.gameObject.SetActive(false);
+            }
         }
         else
         {
             icon.enabled = false; //갖고있지 않기 때문에 비활성화
             quantityText.text = "";
+            equipTxt.gameObject.SetActive(false);
         }
     }
     public void OnItemClicked()

@@ -1,12 +1,16 @@
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIInventory : MonoBehaviour
 {
+    [Header("인벤토리")]
     [SerializeField] private ItemSlot slotPrefab;
     [SerializeField] private Transform slotParent;
+    [SerializeField] private TextMeshProUGUI itemCountTxt;
+    private int maxSlotCount = 30;
     private List<ItemSlot> slotsList = new List<ItemSlot>();
 
     [Header("버튼")]
@@ -33,6 +37,7 @@ public class UIInventory : MonoBehaviour
             newSlot.gameObject.SetActive(true);
             slotsList.Add(newSlot);
         }
+        UpdateItemCountTxt(slotsList.Count);
     }
     public void ShowEquipPopUp(Item item)
     {
@@ -40,5 +45,16 @@ public class UIInventory : MonoBehaviour
         {
             uIPopup.ShowPopup(item);
         }
+    }
+    public void UpdateUI()
+    {
+        foreach(var slot in slotsList)
+        {
+            slot.UpdateSlot();
+        }
+    }
+    public void UpdateItemCountTxt(int currentItemCount)
+    {
+        itemCountTxt.text = currentItemCount.ToString() + " / " + maxSlotCount.ToString();
     }
 }

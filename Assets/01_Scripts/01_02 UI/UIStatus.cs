@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class UIStatus : MonoBehaviour, IGetData
 {
+    [SerializeField] private Transform slotParent;
     [Header("캐릭터 스텟")]
     public TextMeshProUGUI atkValue;
     public TextMeshProUGUI defValue;
