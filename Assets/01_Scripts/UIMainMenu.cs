@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +13,7 @@ public class UIMainMenu : MonoBehaviour, IGetData
     public TextMeshProUGUI levelTxt;
     public TextMeshProUGUI goldAmount;
     public TextMeshProUGUI expTxt;
+    public TextMeshProUGUI desTxt;
     
     [Header("Element")]
     public Button inventoryBtn;
@@ -56,8 +55,8 @@ public class UIMainMenu : MonoBehaviour, IGetData
         levelTxt.text = $"Level : {character.Level} ";
         goldAmount.text = $"{character.Gold} ";
         expTxt.text = $"{character.CurExp} / {character.MaxExp}";
-
         expSlider.value = (float)character.CurExp / character.MaxExp;
+        desTxt.text = character.Description;
     }
 }
 

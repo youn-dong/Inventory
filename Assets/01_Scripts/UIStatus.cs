@@ -1,7 +1,5 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class UIStatus : MonoBehaviour, IGetData

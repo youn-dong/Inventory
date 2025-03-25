@@ -376,6 +376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b301ce48c6602243be388b3b3f61a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenu: {fileID: 744414471}
+  inventory: {fileID: 1422909037}
+  status: {fileID: 638163897}
 --- !u!4 &179613918
 Transform:
   m_ObjectHideFlags: 0
@@ -1744,6 +1747,7 @@ MonoBehaviour:
   levelTxt: {fileID: 1801770621}
   goldAmount: {fileID: 1149163160}
   expTxt: {fileID: 657757251}
+  desTxt: {fileID: 963168894}
   inventoryBtn: {fileID: 896809437}
   statusBtn: {fileID: 1787713952}
   expSlider: {fileID: 49514901}
@@ -2255,7 +2259,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 100}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &963168894
 MonoBehaviour:
@@ -2304,13 +2308,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535

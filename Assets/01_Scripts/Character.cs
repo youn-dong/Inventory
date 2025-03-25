@@ -6,21 +6,22 @@ public class Character
     public int MaxHp { get; private set; }
     public int Critical { get; private set; }
     public int Gold { get; private set; }
-    public string description;
+    public string Description { get; private set; }
     public int MaxExp { get; private set; }
     public int CurExp { get; private set; }
     public int Level { get; private set; }
-    public Character()
+    public Character(string userName, int atk, int def, int maxHp, int critical, int gold, string description, int level, int curExp, int maxExp)
     {
-        UserName = "DefalutName";
-        Level = 1;
-        CurExp = 0;
-        Atk = 0;
-        Def = 0;
-        MaxHp = 100;
-        Critical = 5;
-        Gold = 10000;
-        description = "";
+        UserName = userName;
+        Atk = atk;
+        Def = def;
+        MaxHp = maxHp;
+        Critical = critical;
+        Gold = gold;
+        Description = description;
+        Level = level;
+        CurExp = curExp;
+        MaxExp = maxExp;
     }
     public void LevelUp(int exp)
     {

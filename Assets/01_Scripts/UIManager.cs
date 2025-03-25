@@ -1,12 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public UIMainMenu MainMenu { get; private set; }
-    public UIInventory Inventory { get; private set; }
-    public UIStatus Status { get; private set; }
+    [SerializeField] private UIMainMenu mainMenu; //인스펙터에서 보이면서 프로퍼티로 갖고 있을 수 있
+    [SerializeField] private UIInventory inventory; //Attribute를 사용하고 getter에 람다식으로 외부에 필드를 반환하는 형식으로
+    [SerializeField] private UIStatus status;
+
+    public UIMainMenu MainMenu => mainMenu;
+    public UIStatus Status => status;
+    public UIInventory Inventory => inventory;
 
     public static UIManager Instance;
     private void Awake()
