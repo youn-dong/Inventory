@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class Character 
 {
     public string UserName { get; private set; }
@@ -10,6 +12,9 @@ public class Character
     public int MaxExp { get; private set; }
     public int CurExp { get; private set; }
     public int Level { get; private set; }
+    public List<Item> Inventory { get; private set; }
+    public Item EquippedItem { get; private set; }
+
     public Character(string userName, int atk, int def, int maxHp, int critical, int gold, string description, int level, int curExp, int maxExp)
     {
         UserName = userName;
@@ -22,6 +27,9 @@ public class Character
         Level = level;
         CurExp = curExp;
         MaxExp = maxExp;
+
+        Inventory = new List<Item>();
+        EquippedItem = null;
     }
     public void LevelUp(int exp)
     {
@@ -31,6 +39,20 @@ public class Character
             CurExp -= MaxExp;
             Level++;
             MaxExp += 5;
+        }
+    }
+    public void AddItem(Item newitem)
+    {
+        if(newitem != null)
+        {
+            Inventory.Add(newitem);
+        }
+    }
+    public void EquipItem(Item item)
+    {
+        if (item != null && Inventory.Contains(item))
+        {
+            EquippedItem = item;
         }
     }
 }

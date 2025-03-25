@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Item_Armor
   m_EditorClassIdentifier: 
   itemName: "\uAC11\uC637"
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 603e026921ee6c44ab5c48b149bb31e9, type: 3}
   maxStack: 1
   itemType: 2
   statType: 1

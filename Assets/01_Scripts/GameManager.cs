@@ -4,6 +4,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [SerializeField] private Item sword;
+    [SerializeField] private Item armor;
+    [SerializeField] private Item shoes;
+    [SerializeField] private Item ring;
+    [SerializeField] private Item pendant;
+    [SerializeField] private Item Helmet;
+
     public Character Player { get; private set; }
     private void Awake()
     {
@@ -36,13 +43,18 @@ public class GameManager : MonoBehaviour
             curExp: 3,
             maxExp: 10
         );
+        Player.AddItem(sword);
+        Player.AddItem(Helmet);
+        Player.AddItem(armor);
+        Player.AddItem(pendant);
+        Player.AddItem(shoes);
+        Player.AddItem(ring);
+
         //각종 Canvas에 데이터 전달
         UIManager.Instance.MainMenu.SetCharacterData(Player);
         UIManager.Instance.Status.SetCharacterData(Player);
+        UIManager.Instance.Inventory.SetItemData(Player.Inventory);
     }
 
-    public void SetItemData()
-    {
 
-    }
 }

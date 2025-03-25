@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Item_Ring
   m_EditorClassIdentifier: 
   itemName: "\uBC18\uC9C0"
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 1f5a5d8e5a8b94c4f9cb55fbe39fd4c8, type: 3}
   maxStack: 1
   itemType: 4
   statType: 3
