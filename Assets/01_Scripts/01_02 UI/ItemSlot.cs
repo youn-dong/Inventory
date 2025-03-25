@@ -4,14 +4,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIslot : MonoBehaviour
+public class ItemSlot : MonoBehaviour
 {
     [SerializeField] private Image icon;
     [SerializeField] private TextMeshProUGUI quantityText; //인벤토리에 있는 아이템의 개수
+    [SerializeField] private TextMeshProUGUI equipTxt;
 
     private int curQuantity;
     private Item currentItem;
-
 
     public void SetItem(Item newItem, int quantity = 1)
     {
@@ -39,5 +39,9 @@ public class UIslot : MonoBehaviour
             icon.enabled = false; //갖고있지 않기 때문에 비활성화
             quantityText.text = "";
         }
+    }
+    public void OnItemClicked()
+    {
+        UIManager.Instance.Inventory.ShowEquipPopUp(currentItem);
     }
 }

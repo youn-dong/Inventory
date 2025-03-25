@@ -13,7 +13,7 @@ public class Character
     public int CurExp { get; private set; }
     public int Level { get; private set; }
     public List<Item> Inventory { get; private set; }
-    public Item EquippedItem { get; private set; }
+    public Dictionary<ItemType, Item> equippedItems { get; private set; }
 
     public Character(string userName, int atk, int def, int maxHp, int critical, int gold, string description, int level, int curExp, int maxExp)
     {
@@ -29,7 +29,7 @@ public class Character
         MaxExp = maxExp;
 
         Inventory = new List<Item>();
-        EquippedItem = null;
+        equippedItems = new Dictionary<ItemType, Item>(); // 딕셔너리를 통해 아이템의 타입에 따라서 장착을 할 수 있도록 만들기 위함.
     }
     public void LevelUp(int exp)
     {
@@ -41,7 +41,7 @@ public class Character
             MaxExp += 5;
         }
     }
-    public void AddItem(Item newitem)
+    public void AddItem(Item newitem) //
     {
         if(newitem != null)
         {
@@ -52,7 +52,25 @@ public class Character
     {
         if (item != null && Inventory.Contains(item))
         {
-            EquippedItem = item;
+            if(equippedItems.ContainsKey(item.ItemType))
+            {
+                equippedItems[item.ItemType] = item;
+            }
         }
+        else
+        {
+            equippedItems.Add(item.ItemType, item);
+        }
+    }
+    public void UnEquipItem(Item item)
+    {
+        if (item != null && equippedItems.ContainsKey(item.ItemType) && equippedItems[item.ItemType] == item)
+        {
+            equippedItems.Remove(item.ItemType);
+        }
+    }
+    public bool IsItemEquipped(Item item)
+    {
+        return item != null && equippedItems.ContainsKey(item.ItemType) && equippedItems[item.ItemType] == item;
     }
 }
