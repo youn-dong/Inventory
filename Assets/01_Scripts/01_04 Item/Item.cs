@@ -12,7 +12,7 @@ public enum StatType
 {
     Attack,
     Defense,
-    Helath,
+    Health,
     Critical
 }
 [CreateAssetMenu(fileName = "Item", menuName = "Inventory/Item")]

@@ -55,6 +55,7 @@ public class UIPopup : MonoBehaviour
         {
             GameManager.Instance.Player.EquipItem(currentItem);
             UIManager.Instance.Inventory.UpdateUI();
+            UIManager.Instance.Status.SetCharacterData(GameManager.Instance.Player);
         }
         ClosePopUp();
     }
@@ -65,6 +66,7 @@ public class UIPopup : MonoBehaviour
         {
             GameManager.Instance.Player.UnEquipItem(currentItem);
             UIManager.Instance.Inventory.UpdateUI();
+            UIManager.Instance.Status.SetCharacterData(GameManager.Instance.Player);
         }
         ClosePopUp();
     }
