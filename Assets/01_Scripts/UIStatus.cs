@@ -1,8 +1,9 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
-public class UIStatus : MonoBehaviour
+public class UIStatus : MonoBehaviour, IGetData
 {
     [Header("캐릭터 스텟")]
     public TextMeshProUGUI atkValue;
@@ -19,6 +20,12 @@ public class UIStatus : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+
+
+    public void SetCharacterData(Character character)
     {
         
     }

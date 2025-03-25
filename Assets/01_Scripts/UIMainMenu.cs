@@ -4,7 +4,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIMainMenu : MonoBehaviour
+public interface IGetData
+{
+    void SetCharacterData(Character character);
+}
+public class UIMainMenu : MonoBehaviour, IGetData
 {
     [Header("캐릭터 정보")]
     public TextMeshProUGUI nameTxt;
@@ -43,6 +47,12 @@ public class UIMainMenu : MonoBehaviour
         UIManager.Instance.MainMenu.gameObject.SetActive(false);
         UIManager.Instance.Inventory.gameObject.SetActive(true);
         UIManager.Instance.Status.gameObject.SetActive(false);
+    }
+    public void SetCharacterData(Character character)
+    {
+        nameTxt.text = $"ID : {character.UserName} ";
+        levelTxt.text = $"Level : {character.Level} ";
+        goldAmount.text = $"{character.Gold} ";
     }
 }
 

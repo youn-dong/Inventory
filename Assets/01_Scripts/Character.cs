@@ -1,23 +1,36 @@
-using Unity.Profiling;
-
 public class Character 
 {
-    private string userName;
-    private int atk;
-    private int def;
-    private int hp;
-    private int critical;
-    private int gold;
-    private string description;
-
+    public string UserName { get; private set; }
+    public int Atk { get; private set;}
+    public int Def { get; private set;}
+    public int Hp { get; private set; }
+    public int Critical { get; private set; }
+    public int Gold { get; private set; }
+    public string description;
+    public int MaxExp { get; private set; }
+    public int CurExp { get; private set; }
+    public int Level { get; private set; }
     public Character()
     {
-        userName = "DefalutName";
-        atk = 0;
-        def = 0;
-        hp = 100;
-        critical = 5;
-        gold = 10000;
+        UserName = "DefalutName";
+        Level = 1;
+        CurExp = 0;
+        Atk = 0;
+        Def = 0;
+        Hp = 100;
+        Critical = 5;
+        Gold = 10000;
         description = "";
+    }
+    public void LevelUp(int exp)
+    {
+        CurExp += exp; //얻은 경험치만큼
+        while(CurExp >= MaxExp)
+        {
+            CurExp -= MaxExp;
+            Level++;
+            MaxExp += 5;
+        }
+
     }
 }
