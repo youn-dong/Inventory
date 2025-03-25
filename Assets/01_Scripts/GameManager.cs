@@ -40,4 +40,9 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.MainMenu.SetCharacterData(Player);
         UIManager.Instance.Status.SetCharacterData(Player);
     }
+
+    public void SetItemData()
+    {
+
+    }
 }

@@ -23,7 +23,7 @@ public class UIslot : MonoBehaviour
     {
         if (item != null)  //갖고있는 아이템이라면
         {
-            icon.sprite = item.image;
+            icon.sprite = item.Image;
             icon.enabled = true;  // 갖고있는 아이템 이미지 활성화
             quantityText.text = curQuantity > 1 ? curQuantity.ToString() : ""; //삼항연산자를 활용하여 갖고있는 아이템이 1보다 크다면 개수를 표시
         }
