@@ -19,21 +19,14 @@ public class UIStatus : MonoBehaviour, IGetData
         mainUIBtn.onClick.AddListener(UIManager.Instance.MainMenu.OpenMainMenu);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetCharacterData(Character character) 
     {
-        
-    }
-
-
-    public void SetCharacterData(Character character)
-    {
-        int totalAtk = character.Atk;
+        int totalAtk = character.Atk; //캐릭터의 기본 장비 미장착시 스텟
         int totalDef = character.Def;
         int totalMaxHp = character.MaxHp;
         int totalCritical = character.Critical;
 
-        foreach (var stat in character.equippedItems)
+        foreach (var stat in character.equippedItems) //아이템 장착시 스텟 업데이트
         {
             Item equippedItem = stat.Value;
             switch (equippedItem.StatType)

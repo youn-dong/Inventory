@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using TMPro;
@@ -33,27 +34,27 @@ public class UIInventory : MonoBehaviour
         for(int i=0; i<inventory.Count; i++) // 갖고있는 아이템의 숫자에 따라
         {
             ItemSlot newSlot = Instantiate(slotPrefab, slotParent); //슬롯을 재생성
-            newSlot.SetItem(inventory[i]); //
-            newSlot.gameObject.SetActive(true);
-            slotsList.Add(newSlot);
+            newSlot.SetItem(inventory[i]); //생성한 슬롯에 현재 아이템을 추가하기 위해 데이터를 할당해주는 메서드를 호출
+            newSlot.gameObject.SetActive(true); //슬롯을 활성화
+            slotsList.Add(newSlot); //리스트에 활성화된 슬롯을 추가
         }
-        UpdateItemCountTxt(slotsList.Count);
+        UpdateItemCountTxt(slotsList.Count); //슬롯의 총 개수를 표시하는 텍스트에도 업데이트
     }
     public void ShowEquipPopUp(Item item)
     {
-        if(uIPopup != null)
+        if (uIPopup != null)
         {
             uIPopup.ShowPopup(item);
         }
     }
-    public void UpdateUI()
+    public void UpdateUI()  // 슬롯을 업데이트 해주는 메서드
     {
         foreach(var slot in slotsList)
         {
             slot.UpdateSlot();
         }
     }
-    public void UpdateItemCountTxt(int currentItemCount)
+    public void UpdateItemCountTxt(int currentItemCount)  
     {
         itemCountTxt.text = currentItemCount.ToString() + " / " + maxSlotCount.ToString();
     }

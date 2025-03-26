@@ -33,7 +33,7 @@ public class ItemSlot : MonoBehaviour
         icon.enabled = false;
         quantityText.text = ""; 
     }
-    public void UpdateSlot()
+    public void UpdateSlot() 
     {
         UIInventory uiInventroy = UIManager.Instance.Inventory;
         if (currentItem != null)  //갖고있는 아이템이라면
@@ -41,8 +41,9 @@ public class ItemSlot : MonoBehaviour
             icon.sprite = currentItem.Image;
             icon.enabled = true;  // 갖고있는 아이템 이미지 활성화
             quantityText.text = curQuantity > 1 ? curQuantity.ToString() : ""; //삼항연산자를 활용하여 갖고있는 아이템이 1보다 크다면 개수를 표시
+                                                                               //추후 소비아이템을 확장할 때 소비아이템의 개수를 표시하기 위한 방법
 
-            bool isEquipped = GameManager.Instance.Player.IsItemEquipped(currentItem);
+            bool isEquipped = GameManager.Instance.Player.IsItemEquipped(currentItem); //아이템을 장착했는지 여부를 확인하고,
             if (isEquipped)
             {
                 Debug.Log("현재상태" + isEquipped);

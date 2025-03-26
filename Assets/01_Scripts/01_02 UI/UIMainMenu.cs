@@ -19,18 +19,12 @@ public class UIMainMenu : MonoBehaviour, IGetData
     public Button inventoryBtn;
     public Button statusBtn;
     public Slider expSlider;
-    // Start is called before the first frame update
     void Start()
     {
         inventoryBtn.onClick.AddListener(OpenInventory);
         statusBtn.onClick.AddListener(OpenStatus);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void OpenMainMenu()
     {
         UIManager.Instance.MainMenu.gameObject.SetActive(true);

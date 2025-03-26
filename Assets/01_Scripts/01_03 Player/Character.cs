@@ -29,7 +29,7 @@ public class Character
         MaxExp = maxExp;
 
         Inventory = new List<Item>();
-        equippedItems = new Dictionary<ItemType, Item>(); // 딕셔너리를 통해 아이템의 타입에 따라서 장착을 할 수 있도록 만들기 위함.
+        equippedItems = new Dictionary<ItemType, Item>(); // 딕셔너리를 통해 아이템의 타입에 따라서 장착할 수 있는 장착 아이템 딕셔너리를 생성
     }
     public void LevelUp(int exp)
     {
@@ -41,25 +41,26 @@ public class Character
             MaxExp += 5;
         }
     }
-    public void AddItem(Item newitem) //
+    public void AddItem(Item newitem) // 인벤토리에 아이템 추가하기
     {
         if(newitem != null)
         {
             Inventory.Add(newitem);
         }
     }
-    public void EquipItem(Item item)
+    public void EquipItem(Item item) // 아이템 장착할 때
     {
-        if (item != null && Inventory.Contains(item))
+        if (item != null && Inventory.Contains(item)) //아이템이 있는지와 인벤토리에 존재하는지를 체크하고
         {
-            if (equippedItems.ContainsKey(item.ItemType))
+            if (equippedItems.ContainsKey(item.ItemType)) // 장착한 아이템을 저장하는 딕셔너리에 아이템 종류를 확인하고,
+                                                          // 이미 장착이 되어있다면 내가 현재 선택한 아이템을 장착 아이템으로
             {
                 equippedItems[item.ItemType] = item;
             }
 
             else
             {
-                equippedItems.Add(item.ItemType, item);
+                equippedItems.Add(item.ItemType, item); //만약 아이템종류에 장착이 되어있지 않다면 장착하고, 딕셔너리에 장착아이템의 데이터를 추가
             }
         }
     }
@@ -76,6 +77,6 @@ public class Character
         {
             return false;
         }
-        return item != null && equippedItems.ContainsKey(item.ItemType) && equippedItems[item.ItemType] == item;
+        return equippedItems.ContainsKey(item.ItemType) && equippedItems[item.ItemType] == item; //딕셔너리에 등록된 장착 아이템이 실제 아이템과 동일한지 체크
     }
 }

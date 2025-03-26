@@ -64,7 +64,7 @@ public class UIPopup : MonoBehaviour
     {
         if(currentItem != null)
         {
-            GameManager.Instance.Player.UnEquipItem(currentItem);
+            GameManager.Instance.Player.UnEquipItem(currentItem); 
             UIManager.Instance.Inventory.UpdateUI();
             UIManager.Instance.Status.SetCharacterData(GameManager.Instance.Player);
         }

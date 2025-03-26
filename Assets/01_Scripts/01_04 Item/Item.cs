@@ -15,7 +15,7 @@ public enum StatType
     Health,
     Critical
 }
-[CreateAssetMenu(fileName = "Item", menuName = "Inventory/Item")]
+[CreateAssetMenu(fileName = "Item", menuName = "Item")]
 public class Item : ScriptableObject
 {
     [SerializeField] private string itemName;
