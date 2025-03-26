@@ -5,7 +5,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [SerializeField] private Item sword;
-    [SerializeField] private Item armor;
+    [SerializeField] private Item lowArmor;
+    [SerializeField] private Item highArmor;
     [SerializeField] private Item shoes;
     [SerializeField] private Item ring;
     [SerializeField] private Item pendant;
@@ -45,7 +46,8 @@ public class GameManager : MonoBehaviour
         );
         Player.AddItem(sword);
         Player.AddItem(Helmet);
-        Player.AddItem(armor);
+        Player.AddItem(lowArmor);
+        Player.AddItem(highArmor);
         Player.AddItem(pendant);
         Player.AddItem(shoes);
         Player.AddItem(ring);
